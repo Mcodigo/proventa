@@ -1,11 +1,16 @@
 package vistas;
 
+import java.awt.AWTException;
 import utilerias.modeloTabla;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.SystemTray;
 import java.awt.font.TextAttribute;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
@@ -390,6 +395,11 @@ public class principal extends javax.swing.JFrame {
 
         mSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/close_remove_delete_1332.png"))); // NOI18N
         mSalir.setText("Salir");
+        mSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mSalirMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(mSalir);
 
         setJMenuBar(jMenuBar1);
@@ -440,10 +450,14 @@ public class principal extends javax.swing.JFrame {
         mostrarReportes();
     }//GEN-LAST:event_mReportesMouseClicked
 
+    private void mSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mSalirMouseClicked
+         
+    }//GEN-LAST:event_mSalirMouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws AWTException, MalformedURLException{
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
