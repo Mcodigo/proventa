@@ -1759,14 +1759,36 @@ public class frmProductos extends javax.swing.JInternalFrame {
                 case "IVA":
                     iva = Integer.parseInt(JtImpuestosProductos.getValueAt(row, 1).toString());
                     pIVA = Double.parseDouble(JtImpuestosProductos.getValueAt(row, 3).toString());
+                    System.out.println(iva);
                     break;
                 case "IEPS":
                     ieps = Integer.parseInt(JtImpuestosProductos.getValueAt(row, 1).toString());
                     pIEPS = Double.parseDouble(JtImpuestosProductos.getValueAt(row, 3).toString());
+                    System.out.println(ieps);
                     break;
                 case "ISH":
                     ish = Integer.parseInt(JtImpuestosProductos.getValueAt(row, 1).toString());
                     pISH = Double.parseDouble(JtImpuestosProductos.getValueAt(row, 3).toString());
+                    System.out.println(ish);
+                default:
+                    break;
+            }
+        }else{
+            switch (tipoImpuesto) {
+                case "IVA":
+                    iva = 0;
+                    pIVA = 0.0;
+                    System.out.println(iva);
+                    break;
+                case "IEPS":
+                    ieps = 0;
+                    pIEPS = 0.0;
+                    System.out.println(ieps);
+                    break;
+                case "ISH":
+                    ish = 0;
+                    pISH = 0.0;
+                    System.out.println(ish);
                 default:
                     break;
             }
@@ -1779,7 +1801,9 @@ public class frmProductos extends javax.swing.JInternalFrame {
             txtPrecioProducto.setToolTipText("Ingresa el precio de venta");
         } else {
             double precioSn = Double.parseDouble(txtPrecioProducto.getText());
-                if (iva != 0) {
+                
+            if (iva != 0) {
+                System.out.println("EXITO");
                     double iv = precioSn * pIVA / 100;
                     precioFinal = iv + Double.parseDouble(txtPrecioProducto.getText());
                     txtPrecioProducto.setToolTipText("<html>"
@@ -1796,6 +1820,7 @@ public class frmProductos extends javax.swing.JInternalFrame {
                             + "</div>"
                             + "<html>");
                 } else if (ish != 0) {
+                    System.out.println("EXITO2");
                     double is = precioSn * pISH / 100;
                     precioFinal = is + Double.parseDouble(txtPrecioProducto.getText());
                     txtPrecioProducto.setToolTipText("<html>"
@@ -1812,6 +1837,7 @@ public class frmProductos extends javax.swing.JInternalFrame {
                             + "</div>"
                             + "<html>");
                 } else if (ieps != 0) {
+                    System.out.println("EXITO3");
                     double ips = precioSn * pIEPS / 100;
                     precioFinal = ips + Double.parseDouble(txtPrecioProducto.getText());
                     txtPrecioProducto.setToolTipText("<html>"
@@ -1828,6 +1854,7 @@ public class frmProductos extends javax.swing.JInternalFrame {
                             + "</div>"
                             + "<html>");
                 } else if (iva != 0 && ieps != 0) {
+                    System.out.println("EXITO4");
                     double iv = precioSn * pIVA / 100;
                     double ips = precioSn * pIEPS / 100;
                     precioFinal = iv + ips + Double.parseDouble(txtPrecioProducto.getText());
